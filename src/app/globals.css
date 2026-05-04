@@ -1,0 +1,836 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7F9FC;
+  --foreground: #1B1F5E;
+  --primary: #2E2A8F;
+  --accent: #2AC7D6;
+  --secondary-blue: #4DA3D9;
+  --dark-accent: #1B1F5E;
+  --gradient-primary: linear-gradient(135deg, #2E2A8F, #2AC7D6);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-secondary-blue: var(--secondary-blue);
+  --color-dark-accent: var(--dark-accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   BRAND GRADIENTS & TEXT EFFECTS
+   ============================================ */
+
+.bg-brand-gradient {
+  background: var(--gradient-primary);
+}
+
+.text-brand-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+/* Fluid typography using clamp */
+.text-responsive {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.heading-responsive {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-fade-down {
+  animation: fade-down 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+/* Lift effect on hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Scale effect on hover */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Glow effect */
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(42, 199, 214, 0.3);
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(27, 31, 94, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ============================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   HERO DATABASE FLOW AI BACKGROUND
+   ============================================ */
+
+/* Floating database nodes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(20px) rotate(-5deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+/* Pulse animations for database icons */
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px var(--accent));
+  }
+}
+
+@keyframes pulse-glow-primary {
+  0%, 100% { 
+    opacity: 0.5;
+    filter: drop-shadow(0 0 5px var(--primary));
+  }
+  50% { 
+    opacity: 0.9;
+    filter: drop-shadow(0 0 15px var(--primary));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow-primary {
+  animation: pulse-glow-primary 4s ease-in-out infinite;
+}
+
+/* Data flow lines */
+@keyframes flow-line {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes flow-line-vertical {
+  0% { stroke-dashoffset: 50; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-flow {
+  stroke-dasharray: 10 10;
+  animation: flow-line 1s linear infinite;
+}
+
+.animate-flow-vertical {
+  stroke-dasharray: 5 10;
+  animation: flow-line-vertical 0.8s linear infinite;
+}
+
+/* Neural network nodes */
+@keyframes node-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes connection-pulse {
+  0%, 100% { 
+    opacity: 0.2;
+  }
+  50% { 
+    opacity: 0.6;
+  }
+}
+
+.animate-node-pulse {
+  animation: node-pulse 2s ease-in-out infinite;
+}
+
+.animate-connection-pulse {
+  animation: connection-pulse 3s ease-in-out infinite;
+}
+
+/* Data particles */
+@keyframes particle-float {
+  0% { 
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { 
+    opacity: 1;
+  }
+  90% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes particle-float-alt {
+  0% { 
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { 
+    opacity: 0.8;
+  }
+  90% { 
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translateY(-80px) translateX(-15px);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation: particle-float 4s ease-out infinite;
+}
+
+.animate-particle-alt {
+  animation: particle-float-alt 5s ease-out infinite;
+}
+
+/* Rotating ring effect */
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+@keyframes rotate-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-rotate-reverse {
+  animation: rotate-reverse 25s linear infinite;
+}
+
+/* Gradient mesh background */
+@keyframes gradient-shift {
+  0%, 100% { 
+    background-position: 0% 50%;
+  }
+  50% { 
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 15s ease infinite;
+}
+
+
+/* Database icon glow */
+.db-icon-glow {
+  filter: drop-shadow(0 0 10px rgba(42, 199, 214, 0.5));
+}
+
+.db-icon-glow-primary {
+  filter: drop-shadow(0 0 8px rgba(46, 42, 143, 0.4));
+}
+
+/* Orbit animation for AI brain */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(80px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(80px) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 4s linear infinite;
+}
+
+/* ============================================
+   HEADING HOVER & ANIMATION EFFECTS
+   ============================================ */
+
+/* Gradient text animation */
+@keyframes gradient-text-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-text-shift 3s ease infinite;
+}
+
+/* Glow pulse for heading */
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(42, 199, 214, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(42, 199, 214, 0.6));
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--accent) 25%,
+    var(--secondary-blue) 50%,
+    var(--accent) 75%,
+    var(--primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Scale up animation */
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scale-up 2s ease-in-out infinite;
+}
+
+/* Floating text effect */
+@keyframes float-text {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-text {
+  animation: float-text 3s ease-in-out infinite;
+}
+
+/* Heading hover glow */
+.heading-hover-glow {
+  transition: all 0.3s ease;
+}
+
+.heading-hover-glow:hover {
+  filter: drop-shadow(0 0 15px rgba(42, 199, 214, 0.5));
+  transform: scale(1.02);
+}
+
+/* Animated underline */
+@keyframes underline-expand {
+  0% {
+    background-size: 0% 2px;
+    background-position: left bottom;
+  }
+  50% {
+    background-size: 100% 2px;
+    background-position: left bottom;
+  }
+  100% {
+    background-size: 0% 2px;
+    background-position: right bottom;
+  }
+}
+
+.animate-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+}
+
+.animate-underline:hover {
+  background-size: 100% 2px;
+}
+
+/* Typewriter cursor effect */
+@keyframes cursor-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* ============================================
+   BLOG PROSE STYLES
+   ============================================ */
+
+.prose-blog {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--dark-accent);
+}
+
+.prose-blog > * + * {
+  margin-top: 1.5em;
+}
+
+.prose-blog h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark-accent);
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+}
+
+.prose-blog h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--dark-accent);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.prose-blog p {
+  color: var(--dark-accent);
+  opacity: 0.8;
+  line-height: 1.8;
+}
+
+.prose-blog a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.prose-blog a:hover {
+  color: var(--accent);
+}
+
+.prose-blog ul,
+.prose-blog ol {
+  padding-left: 1.5em;
+  margin: 1.25em 0;
+}
+
+.prose-blog li {
+  margin: 0.75em 0;
+  color: var(--dark-accent);
+  opacity: 0.8;
+}
+
+.prose-blog li::marker {
+  color: var(--accent);
+}
+
+.prose-blog strong {
+  color: var(--dark-accent);
+  font-weight: 600;
+}
+
+.prose-blog blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.25em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--dark-accent);
+  opacity: 0.75;
+}
+
+/* ============================================
+   CODE BLOCK STYLES
+   ============================================ */
+
+.code-block {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.code-block code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #22d3ee;
+  background: transparent;
+  padding: 0;
+}
+
+/* Syntax highlighting colors */
+.code-block .keyword {
+  color: #c084fc;
+}
+
+.code-block .string {
+  color: #86efac;
+}
+
+.code-block .comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.code-block .function {
+  color: #60a5fa;
+}
+
+.code-block .number {
+  color: #fcd34d;
+}
+
+.code-block .operator {
+  color: #f472b6;
+}
+
+/* Code block hover effect */
+.code-block:hover {
+  border-color: rgba(42, 199, 214, 0.3);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 20px rgba(42, 199, 214, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   TABLE STYLES
+   ============================================ */
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.comparison-table thead {
+  background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.comparison-table th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+
+.comparison-table th:first-child {
+  border-top-left-radius: 11px;
+}
+
+.comparison-table th:last-child {
+  border-top-right-radius: 11px;
+}
+
+.comparison-table tbody {
+  background: white;
+}
+
+.comparison-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--dark-accent);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.comparison-table tbody tr:hover {
+  background: rgba(42, 199, 214, 0.05);
+}
+
+.comparison-table td:first-child {
+  font-weight: 500;
+}
+
+/* ============================================
+   READING PROGRESS BAR
+   ============================================ */
+
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  z-index: 1000;
+  transition: width 0.1s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE BLOG STYLES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .prose-blog {
+    font-size: 1rem;
+  }
+  
+  .prose-blog h2 {
+    font-size: 1.5rem;
+  }
+  
+  .prose-blog h3 {
+    font-size: 1.25rem;
+  }
+  
+  .code-block {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .code-block code {
+    font-size: 0.8125rem;
+  }
+  
+  .comparison-table {
+    font-size: 0.875rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem 1rem;
+  }
+}

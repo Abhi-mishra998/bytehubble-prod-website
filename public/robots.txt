@@ -1,0 +1,34 @@
+# Robots.txt for ByteHubble
+# https://bytehubble.com
+
+User-agent: *
+Allow: /
+
+# Disallow specific paths if needed
+Disallow: /api/
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://bytehubble.com/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Applebot
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
