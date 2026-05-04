@@ -14,10 +14,10 @@ const PARTNERS = [
 ];
 
 const STATS = [
-  { value: "16",  label: "Weeks",          sub: "Full-time program"   },
-  { value: "60+", label: "Learning Days",  sub: "Structured sessions" },
-  { value: "6+",  label: "Projects",       sub: "Production deploys"  },
-  { value: "2+",  label: "Enterprise Apps",sub: "Real-world systems"  },
+  { value: "4",   label: "Weeks",            sub: "Accelerated program"   },
+  { value: "40+", label: "Hours",            sub: "Live + hands-on"       },
+  { value: "4+",  label: "Projects",         sub: "Portfolio builds"       },
+  { value: "2+",  label: "Enterprise Use Cases", sub: "Real-world impact" },
 ];
 
 const OUTCOMES = [
@@ -40,12 +40,12 @@ const CURRICULUM = [
 ];
 
 const PROJECTS = [
-  { num: "01", badge: "Enterprise", title: "Enterprise RAG + Agents Platform", desc: "Multi-source document Q&A with agentic follow-up, citations, and role-based access control. Deployed on AWS.", tags: ["LangChain", "Pinecone", "FastAPI", "Docker", "AWS"], grad: "from-primary to-accent" },
-  { num: "02", badge: "Enterprise", title: "Autonomous Multi-Agent Workflow", desc: "Orchestrator + specialist agents solving complex multi-step tasks. Real-time monitoring via LangSmith dashboard.", tags: ["LangGraph", "CrewAI", "FastAPI", "Redis"], grad: "from-violet-600 to-purple-500" },
+  { num: "01", badge: "Enterprise", title: "Enterprise RAG + Agents Use Case", desc: "Multi-source document Q&A with agentic follow-up, citations, and role-based access control. Deployed on AWS.", tags: ["LangChain", "Pinecone", "FastAPI", "Docker", "AWS"], grad: "from-primary to-accent" },
+  { num: "02", badge: "Enterprise", title: "Autonomous Multi-Agent Workflow Use Case", desc: "Orchestrator + specialist agents solving complex multi-step tasks. Real-time monitoring via LangSmith dashboard.", tags: ["LangGraph", "CrewAI", "FastAPI", "Redis"], grad: "from-violet-600 to-purple-500" },
   { num: "03", badge: "Fine-Tuning", title: "Fine-Tuned Domain AI Assistant", desc: "Custom LLM fine-tuned on industry dataset. LoRA adapter training, evaluation pipeline, and production serving.", tags: ["QLoRA", "HuggingFace", "vLLM", "Gradio"], grad: "from-emerald-600 to-teal-500" },
   { num: "04", badge: "Multimodal", title: "Multimodal RAG Pipeline", desc: "Image, table, and text retrieval from complex documents. PDF layout-aware extraction with ColPali visual embeddings.", tags: ["ColPali", "Weaviate", "GPT-4o", "Streamlit"], grad: "from-amber-500 to-orange-500" },
   { num: "05", badge: "Backend", title: "AI-Powered REST API Backend", desc: "Production FastAPI service with LLM integration, streaming responses, token tracking, and rate limiting.", tags: ["FastAPI", "PostgreSQL", "Docker", "Celery"], grad: "from-sky-600 to-blue-500" },
-  { num: "06+", badge: "Mini Projects", title: "Phase Mini Projects", desc: "Additional hands-on builds across each phase: prompt pipelines, vector search apps, RL reward models, and more.", tags: ["LangChain", "PyTorch", "ChromaDB", "Plotly"], grad: "from-rose-500 to-pink-500" },
+  { num: "04+", badge: "Mini Projects", title: "Phase Mini Projects", desc: "Additional hands-on builds across each phase: prompt pipelines, vector search apps, RL reward models, and more.", tags: ["LangChain", "PyTorch", "ChromaDB", "Plotly"], grad: "from-rose-500 to-pink-500" },
 ];
 
 const SOURCE_OPTIONS = ["LinkedIn","Instagram","Friend / Referral","JNTU Notice Board","JTBI","YouTube","Google Search","Other"];
@@ -419,7 +419,7 @@ export default function AppliedAIMasteryPage() {
                 <motion.div initial={{ opacity:0, y:10 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} className="mb-8">
                   <span className="text-xs font-semibold uppercase tracking-widest text-accent">7-Phase Curriculum</span>
                   <h2 className="text-3xl lg:text-4xl font-bold text-dark-accent mt-3 mb-3 leading-tight">From zero to production AI engineer</h2>
-                  <p className="text-dark-accent/60 text-sm leading-relaxed max-w-lg">A 16-week journey designed to transform you into a world-class AI Engineer. Each phase is packed with hands-on labs and real-world projects.</p>
+                  <p className="text-dark-accent/60 text-sm leading-relaxed max-w-lg">A 4-week intensive journey designed to transform you into a production-ready AI Engineer. Packed with hands-on labs and real-world enterprise use cases.</p>
                 </motion.div>
                 <div>{CURRICULUM.map((c, i) => <PhaseItem key={c.phase} {...c} index={i} />)}</div>
               </div>
@@ -432,7 +432,7 @@ export default function AppliedAIMasteryPage() {
                     <h3 className="text-lg font-bold mt-2 mb-1 leading-snug" style={{ color: "#ffffff" }}>Cohort 01</h3>
                     <p className="text-sm font-medium mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>Cohort 01 · 2025</p>
                     <div className="space-y-1">
-                      {[["Duration","16 Weeks"],["Format","In-person"],["Projects","6+ Production Apps"],["Certificate","JTBI × BH"]].map(([k,v]) => (
+                      {[["Duration","4 Weeks"],["Format","In-person"],["Projects","4+ Enterprise Use Cases"],["Certificate","JTBI × BH"]].map(([k,v]) => (
                         <div key={k} className="flex justify-between items-center py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
                           <span className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>{k}</span>
                           <span className="text-sm font-semibold" style={{ color: "#ffffff" }}>{v}</span>
@@ -608,7 +608,7 @@ export default function AppliedAIMasteryPage() {
               {/* Left summary */}
               <motion.div initial={{ opacity:0, x:-16 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  {[{t:"16 Weeks",d:"Intensive curriculum"},{t:"6+ Projects",d:"Production portfolio"},{t:"Internships",d:"Paid opportunities"},{t:"Certificate",d:"JTBI × BH"}].map((item) => (
+                  {[{t:"4 Weeks",d:"Accelerated curriculum"},{t:"40+ Hours",d:"Live + hands-on"},{t:"4+ Projects",d:"Portfolio builds"},{t:"2+ Enterprise Use Cases",d:"Real-world impact"}].map((item) => (
                     <div key={item.t} className="p-5 rounded-2xl bg-white border border-gray-100">
                       <h4 className="text-base font-bold text-dark-accent mb-1">{item.t}</h4>
                       <p className="text-xs text-dark-accent/50">{item.d}</p>
