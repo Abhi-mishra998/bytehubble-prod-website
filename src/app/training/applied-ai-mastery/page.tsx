@@ -30,13 +30,10 @@ const OUTCOMES = [
 ];
 
 const CURRICULUM = [
-  { phase:"01", weeks:"Weeks 1–2",  title:"Prerequisites & Foundations", desc:"Engineering foundations every AI engineer must master — mathematics, data structures, Python, SQL, cloud platforms, REST APIs, and data pipeline tools.", tags:["Applied Maths","DSA","Python 3.12","SQL & NoSQL","Docker & Git","AWS / GCP","FastAPI","Kafka & Spark"] },
-  { phase:"02", weeks:"Weeks 3–4",  title:"AI Foundations",              desc:"From classical ML to Generative AI and LLMs — the AI hierarchy explained, neural networks, deep learning, and all major model providers.",                tags:["ML & DL","Neural Nets","PyTorch","GenAI & LLMs","OpenAI / Anthropic","AWS Bedrock","Multimodal LLMs"] },
-  { phase:"03", weeks:"Weeks 5–6",  title:"LLM Mastery",                 desc:"Transformer architectures, advanced prompt engineering, context design, and production-grade LLM operations including evaluation and safety.",              tags:["Transformers","Chain-of-Thought","Few-shot Prompting","Context Engineering","Token Budgeting","LLM Guardrails","Jinja2 Templates"] },
-  { phase:"04", weeks:"Weeks 7–9",  title:"RAG Systems",                 desc:"Vector databases, the full RAG pipeline, advanced retrieval patterns, multimodal RAG, and enterprise-grade RAG with access control and evaluation.",       tags:["Pinecone","ChromaDB","FAISS / Qdrant","Hybrid Search","Re-ranking","RAGAS Eval","LangSmith"] },
-  { phase:"05", weeks:"Weeks 10–11",title:"Fine-Tuning & RLHF",          desc:"Adapting foundation models to domain-specific tasks using LoRA, QLoRA, instruction tuning, and the full RLHF training loop with reward modeling.",        tags:["LoRA","QLoRA","PEFT","Instruction Tuning","RLHF","PPO / DPO","HuggingFace"] },
-  { phase:"06", weeks:"Weeks 12–14",title:"AI Agents & Autonomy",         desc:"Building agents that plan, reason, use tools, and act in the world — multi-agent architectures, LangGraph state machines, and production deployment.",    tags:["LangChain","LangGraph","CrewAI","AutoGen","ReAct Agents","Tool Use","Multi-Agent"] },
-  { phase:"07", weeks:"Weeks 15–16",title:"Capstone & Career Launch",     desc:"Build 3 production AI systems for your portfolio, craft an ATS-optimized AI engineer resume, and prepare for interviews through mock system design.",     tags:["Portfolio Apps","Resume Building","System Design","Interview Prep","Offer Negotiation","Network & Outreach"] },
+  { phase:"01", weeks:"Week 1",   title:"Engineering Foundations & AI Basics", desc:"Master engineering foundations every AI engineer needs — mathematics, data structures, Python, SQL, cloud platforms, REST APIs, and data pipeline tools. Then accelerate into classical ML, deep learning, neural networks, and the latest generative AI and LLM model providers.",                                                                                                                                                                                                                                                            tags:["Applied Maths","DSA","Python 3.12","SQL & NoSQL","Docker & Git","AWS / GCP","FastAPI","Kafka & Spark","ML & DL","Neural Nets","PyTorch","GenAI & LLMs","OpenAI / Anthropic","AWS Bedrock","Multimodal LLMs"] },
+  { phase:"02", weeks:"Week 2",   title:"LLM & RAG Mastery",                  desc:"Deep dive into transformer architectures, advanced prompt engineering, context design, and production-grade LLM operations. Master the full RAG pipeline including vector databases, advanced retrieval patterns, multimodal RAG, enterprise-grade access control, and evaluation frameworks. Learn token budgeting, LLM guardrails, and Jinja2 templates for production systems.",                                                                                                      tags:["Transformers","Chain-of-Thought","Few-shot Prompting","Context Engineering","Token Budgeting","LLM Guardrails","Jinja2 Templates","Pinecone","ChromaDB","FAISS / Qdrant","Hybrid Search","Re-ranking","RAGAS Eval","LangSmith"] },
+  { phase:"03", weeks:"Week 3",   title:"Model Customization & Multi-Agent Systems", desc:"Adapt foundation models to domain-specific tasks using LoRA, QLoRA, instruction tuning, and the full RLHF training loop with reward modeling. Build multi-agent systems that plan, reason, use tools, and act on complex real-world tasks — master LangGraph state machines, CrewAI orchestration, and production deployment patterns.",                                                                                                                                      tags:["LoRA","QLoRA","PEFT","Instruction Tuning","RLHF","PPO / DPO","HuggingFace","LangChain","LangGraph","CrewAI","AutoGen","ReAct Agents","Tool Use","Multi-Agent"] },
+  { phase:"04", weeks:"Week 4",   title:"Production Deployment & Capstone",   desc:"Deploy AI systems to production on AWS/GCP with Docker, FastAPI, async queues, LangSmith observability, and cost control. Build 3 production-grade AI applications for your portfolio, architecting systems that solve real business problems. Prepare for interviews through system design, craft ATS-optimized AI engineer resumes, and access internship fast-track opportunities.",                                                                         tags:["Portfolio Apps","System Design","Interview Prep","Docker","AWS Deployment","LangSmith","FastAPI Production","Resume Building","Offer Negotiation","Network & Outreach","Career Launch"] },
 ];
 
 const PROJECTS = [
@@ -245,7 +242,7 @@ function RegistrationForm() {
       <div className="flex items-start gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200">
         <input type="checkbox" name="agreed" id="agreed" checked={form.agreed} onChange={set} className="mt-0.5 w-4 h-4 accent-primary cursor-pointer flex-shrink-0" />
         <label htmlFor="agreed" className="text-sm text-dark-accent/60 leading-relaxed cursor-pointer">
-          I agree to the program terms and commit to the 16-week schedule. Seats are limited and subject to selection.
+          I agree to the program terms and commit to the 4-week accelerated schedule. Seats are limited and subject to selection.
         </label>
       </div>
       {errorMsg && (
@@ -417,8 +414,8 @@ export default function AppliedAIMasteryPage() {
 
               <div>
                 <motion.div initial={{ opacity:0, y:10 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} className="mb-8">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-accent">7-Phase Curriculum</span>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-dark-accent mt-3 mb-3 leading-tight">From zero to production AI engineer</h2>
+                  <span className="text-xs font-semibold uppercase tracking-widest text-accent">4-Week Accelerated Curriculum</span>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-dark-accent mt-3 mb-3 leading-tight">From zero to production AI engineer in 4 weeks</h2>
                   <p className="text-dark-accent/60 text-sm leading-relaxed max-w-lg">A 4-week intensive journey designed to transform you into a production-ready AI Engineer. Packed with hands-on labs and real-world enterprise use cases.</p>
                 </motion.div>
                 <div>{CURRICULUM.map((c, i) => <PhaseItem key={c.phase} {...c} index={i} />)}</div>

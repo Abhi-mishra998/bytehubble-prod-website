@@ -58,6 +58,11 @@ const locations = [
     address: "Elite Business Center, 13th Floor #12A02B",
     state: "Manjeera Trinity Corporate, KPHB Phase-3, Hyderabad - 500072",
   },
+  {
+    city: "JNTUH Innovation Foundation",
+    address: "Ground Floor, New Admission Block",
+    state: "Kukatpally, Hyderabad - 500085",
+  },
 ];
 
 // SVG Icons as components
@@ -190,14 +195,20 @@ export default function Footer() {
 
               {/* Social links */}
               <div className="flex items-center gap-4 mt-6 pt-6 border-t border-primary/10">
-                {["Twitter", "LinkedIn", "GitHub"].map((social) => (
+                {[
+                  { label: "Twitter", href: "#" },
+                  { label: "LinkedIn", href: "https://www.linkedin.com/company/bytehubbleai/?viewAsMember=true" },
+                  { label: "GitHub", href: "https://github.com/Abhi-mishra998" },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.label}
+                    href={social.href}
                     className="text-foreground/60 hover:text-accent transition-colors text-sm font-medium"
-                    aria-label={social}
+                    aria-label={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {social}
+                    {social.label}
                   </a>
                 ))}
               </div>
