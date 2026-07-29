@@ -228,6 +228,12 @@ export default function Navbar() {
             >
               About
             </Link>
+            <Link
+              href="/careers"
+              className="text-sm font-medium text-dark-accent/80 hover:text-primary transition-colors"
+            >
+              Careers
+            </Link>
           </div>
 
           {/* CTA Button */}
@@ -287,7 +293,14 @@ export default function Navbar() {
               >
                 About
               </Link>
-              
+              <Link
+                href="/careers"
+                className="block text-sm font-medium text-dark-accent/80 py-2 hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Careers
+              </Link>
+
               <div className="pt-2">
                 <button
                   onClick={() => {
